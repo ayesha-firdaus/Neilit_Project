@@ -39,16 +39,28 @@ export const getAlldata=function(){
   const {loading,error,message}=useSelector(state=>state.user);
   return {loading,error,message};
 }
+const useitems=()=>{
+  const {items}=useSelector(state=>state.item)
+  return items||null;
+}
+const filterItems=(category)=>{
+  const itemFiltered=useitems?.().filter(item=>item.category===`${category}`&&item.status==="approved")
+  return itemFiltered||null;
+}
 export const getElectronics=function(){
-  const {electronics}=useSelector(state=>state.item);
- 
+
+  const electronics=filterItems?.("Electronics")
   return electronics!==null? electronics:null;
 }
 export const getStationary=function(){
-  const {stationary}=useSelector(state=>state.item);
+  const stationary=filterItems?.("Stationary")
   return stationary!==null? stationary:null;
 }
 export const getCleaning=function(){
-  const {cleaning}=useSelector(state=>state.item);
+  const cleaning=filterItems?.("Cleaning")
   return cleaning!==null? cleaning:null;
+}
+export const pendingItems=function()
+{
+  return useitems?.().filter(item=>item.status==="pending")||[];
 }

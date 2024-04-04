@@ -30,7 +30,7 @@ exports.getItembyCategory=CatchAsync(async(req,res,next)=>{
 exports.getItems=CatchAsync(async(req,res,next)=>{
     
   const item=await Item.find();
- 
+
   res.status(200).json({
     status:"success",
     message:"item extracted sucessfully",

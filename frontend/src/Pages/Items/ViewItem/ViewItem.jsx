@@ -1,54 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import SingleItem from '../ViewSingleItem/SingleItem';
-import { getElectronics,getStationary,getCleaning, getUser } from '../../../Components/redux/store';
+import { getElectronics,getStationary,getCleaning, getUser,pendingItems} from '../../../Components/redux/store';
 
 import styles from "./Viewitem.module.css"
 import Message from '../../../Utils/Message/Message';
 import Button from '../../../Utils/Button';
 import SingleNewItem from '../ViewSingleItem/SingleNewItem';
+
 export default function ViewItem() {
+   const [show,setShow]=useState();
    const user=getUser();
-   console.log(user)
-  const electronics=getElectronics();
+   const electronics=getElectronics().sort((a,b)=>a.itemcode.slice(1)*1-b.itemcode.slice(1)*1);
   const stationary=getStationary();
   const cleaning=getCleaning();
-  const [pending,setpending]=useState(null)
-  const [loading,setloading]=useState(false);
-  const [error,seterror]=useState(false);
-  const [message,setmessage]=useState(false)
+const pending=pendingItems();
+console.log(pending)
 
-  console.log(status)
-  const PendingHandler = async function () {
-   try {
-     setloading(true);
-     setmessage("");
-     seterror(false);
-     const res = await fetch("/api/item/viewpendingitem");
-     const data = await res.json();
-     if (data.status === "error" || data.status === "fail") {
-       setloading(false);
-       setmessage(data.message);
-       seterror(true);
-       setTimeout(() => {
-         setmessage(""); // Clear the message after 5 seconds
-       }, 5000);
-       return;
-     }
-     setpending(data.item);
-     setloading(false);
-     setmessage(data.message);
-     setTimeout(() => {
-       setmessage(""); // Clear the message after 5 seconds
-     }, 5000);
-   } catch (err) {
-     setloading(false);
-     setmessage(data.message);
-     seterror(true);
-     setTimeout(() => {
-       setmessage(""); // Clear the message after 5 seconds
-     }, 5000);
-   }
- };
   return (
     <div className={`${styles.container} container`}>
     <div>
@@ -105,9 +72,9 @@ export default function ViewItem() {
         </tbody>
      </table>
     </div>
-  {!pending&& <Button onClick={PendingHandler} type="button" loading={loading} category="normalbtn" loadmessage="showing pending items" message="show pending items"  />} 
-   {message&&<Message message={message} type={error?"error":"success"} />}
-   {pending&&<div>
+  {!show&& <Button onClick={()=>setShow((prev)=>!prev)} type="button"  category="normalbtn" loadmessage="showing pending items" message="show pending items"  />} 
+  
+   {show&&<div>
     <h1>New Item Pending For Approval</h1>
      {pending.length===0?<Message message="No items here" type="success" />:<table>
         <thead>
