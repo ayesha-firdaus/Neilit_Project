@@ -1,0 +1,31 @@
+/* 
+tYpography:
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+-font-weight:
+-Line height:
+1
+small=1.05
+paragraph-1.6
+-colors
+  Tint:#fdf2e9;
+  Shade:
+  Accents:
+  Greys
+  #555
+  #333
+  primary:#4AA5DB,#182250,#986f89,#fafcfc,#4091b8,#1376c2,#E36283,#BEC868
+--- 07 WHITESPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+
+
+Cornflower Blue #6495ED(): The primary color.
+Light Gray (#f5f5f5): A neutral and light background color.
+Dark Slate Gray (#2F4F4F): A darker gray for contrast and text.
+Lavender (#E6E6FA): A light and muted purple for a complementary touch.
+Sea Green (#2E8B57): A muted green for a contrasting and natural feel.
+Goldenrod (#DAA520): A warm and muted yellow for added variety.

@@ -1,0 +1,28 @@
+.messageContainer{
+ 
+  padding: 2rem;
+  font-size: 1.5rem;
+ 
+  text-align: center;
+  border-radius: 6px;
+  
+  color: #343434;
+
+
+}
+.message{
+  letter-spacing: 1.2px;
+}
+
+
+.error {
+
+  background-color: #f7a399;
+
+/* Add '2px solid' or your preferred border style */
+}
+.success {
+  background-color: #9fe2bf; 
+ 
+  /* Add '2px solid' or your preferred border style */
+}
