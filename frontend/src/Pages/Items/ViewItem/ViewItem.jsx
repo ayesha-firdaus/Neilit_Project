@@ -11,8 +11,8 @@ export default function ViewItem() {
    const [show,setShow]=useState();
    const user=getUser();
    const electronics=getElectronics().sort((a,b)=>a.itemcode.slice(1)*1-b.itemcode.slice(1)*1);
-  const stationary=getStationary();
-  const cleaning=getCleaning();
+  const stationary=getStationary().sort((a,b)=>a.itemcode.slice(1)*1-b.itemcode.slice(1)*1);
+  const cleaning=getCleaning().sort((a,b)=>a.itemcode.slice(1)*1-b.itemcode.slice(1)*1);
 const pending=pendingItems();
 console.log(pending)
 
