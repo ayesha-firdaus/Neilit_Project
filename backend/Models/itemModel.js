@@ -40,6 +40,14 @@ const  itemSchema=new mongoose.Schema({
         type: String,
         enum: ["pending", "approved","rejected"],
         required: true
+    },
+    stockPresent:{
+        type:Number,
+        required:true,
+    },
+    stockNeeded:{
+        type:Number,
+        required:true
     }
 
 },{

@@ -6,6 +6,7 @@ import styles from "./Viewitem.module.css"
 import Message from '../../../Utils/Message/Message';
 import Button from '../../../Utils/Button';
 import SingleNewItem from '../ViewSingleItem/SingleNewItem';
+import Table from '../../../Utils/Table';
 
 export default function ViewItem() {
    const [show,setShow]=useState();
@@ -96,6 +97,7 @@ console.log(pending)
         </tbody>
      </table>}
     </div>}
+
     </div>
   )
 }
